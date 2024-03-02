@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Environment.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package sg.edu.nus.comp.cs4218;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.exception.ShellException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.impl.util.IOUtils;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.nio.file.Files;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public final class Environment {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Java VM does not support changing the current working directory.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * For this reason, we use Environment.currentDirectory instead.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public static volatile String currentDirectory = System.getProperty(&#34;user.dir&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    private Environment() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns the absolute path of the current working directory.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return string of absolute path</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static String getCurrentDirectory() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_25'/>
+25
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_25'>1</a>
+<span>
+
+1. getCurrentDirectory : replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/Environment::getCurrentDirectory &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return currentDirectory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Sets the current working directory.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param string of valid absolute path</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static void setCurrentDirectory(String path) throws ShellException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_34'>1</a>
+<span>
+
+1. setCurrentDirectory : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (Files.isDirectory(IOUtils.resolveFilePath(path))) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            currentDirectory = IOUtils.resolveFilePath(path).toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@17e20745_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@17e20745_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_25'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCurrentDirectory<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicIntegrationTest]/[method:run_cdOutFromNestedFolder_success()]</span></span> replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/Environment::getCurrentDirectory &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@17e20745_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@17e20745_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setCurrentDirectory<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest]/[method:getRelativeToCwd_withPath_returnsPath()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_nonexistentInputFile_throws()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withoutFlagMoveOneAbsolutePathFileIntoSubFolder_movedIntoSubFolder()] (27 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFiles_singleFileWithSingleLineText_returnsLinesWordsBytesCount()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest]/[method:cd_multipleRelativePath_cdToCorrectDirectory(java.nio.file.Path)] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicIntegrationTest]/[method:sortFromFiles_noFlags_returnsSortedList()] (8 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest]/[method:run_singleFileNoFlag_displaysFileContents()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest]/[method:buildResult_notRecursiveInvalidDirectory_throwsException()] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest]/[method:cpFilesToFolder_multipleFilesAndDirectoriesToDirectory_copiesToDirectory()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withoutFlagsMoveFileWithSameNameIntoFolder_movedIntoFolderWithOverriding()] (34 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_nonexistentFileToFile_throws()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFiles_singleFileWithSingleLineTextWordsOption_returnWordsCount()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_invalidSrcFileFirst_throwsException()] (18 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicIntegrationTest]/[method:run_cdOutFromFolder_success()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IOUtilsTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IOUtilsTest]/[method:openOutputStream_invalidDirectory_throwShellException(java.nio.file.Path)] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.PasteApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.PasteApplicationPublicIntegrationTest]/[method:run_singleFileFlag_displaysNonParallelFileContents()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withFlagRenameOneSubFileIntoFolder_renameSubFile()] (22 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileNoDuplicatesRepeatedOnly_returnsEmpty()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest]/[method:run_spaceInName_deletesFile()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_directoryToNonexistentDirectoryWithFlag_createsDirectoryWithSrcContent()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicTest]/[method:changeToDirectory_validPath_correctlyChangesEnvironment()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest]/[method:run_multipleDirectoriesWithNonemptyDirectoriesNoFlags_displaysFilesAndDirectories()] (96 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest]/[method:run_multipleFiles_deletesFiles()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest]/[method:cpFilesToFolder_multipleFilesToFileRecursive_throws()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_invalidSourceFile_throwException()] (13 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest]/[method:run_singleDirectoryWithFilesNoFlags_displaysFilesAndDirectories()] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withoutFlagsMoveMultipleFilesIntoFolder_movedAllIntoFolder()] (35 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_fileToNonexistentDirectory_createsFileWithDestNameWithSrcContent()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.PasteApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.PasteApplicationPublicIntegrationTest]/[method:run_multipleFilesFlag_displaysNonParallelMergedFileContents()] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withFlags2ArgsSrcFolderDestFileNonExist_renameFile()] (25 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicTest]/[method:listFolderContent_noFoldersSpecified_returnsCurrentFolderContent()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_multipleFilesPrintName_printsLinesWithNames()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicTest]/[method:removeTest_removeFolderNoFlag_throwsException()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_emptyFile_printsNothing()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_directoryToDirectoryWithFlag_copiesSrcDirectoryToDestDirectory()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_directoryToSameDirectoryWithFlag_copiesSrcDirectoryToItself()] (10 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicIntegrationTest]/[method:run_cdOutFromNestedFolder_success()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicTest]/[method:sortFromFiles_caseIndependent_caseIndependentSortedList()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest]/[method:run_listThrowsException_throwsLsException()] (82 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileNoDuplicatesNoArguments_equalToItself()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicTest]/[method:teeFromStdin_appendMultipleFilenamesWithSingleLineInput_returnsCorrectString()] (8 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesRepeatedAndAllRepeatedOnly_returnsItself()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_stdinAndFile_printsLines()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest]/[method:cd_noArgument_cdToUserDirectory()] (47 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest]/[method:cpFilesToFolder_multipleEmptyDirectoriesToDirectory_nothingCopied()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest]/[method:cpFilesToFolder_multipleDirectoriesToFile_throws()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withoutFlagsSameSrcAndDestExist_noChange()] (20 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicTest]/[method:mvFilesToFolder_sourceFolderNotExisting_folderMoved()] (14 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicTest]/[method:listFolderContent_singleFolderSpecifiedRecursive_returnsAllContent()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest]/[method:cd_nullInputStream_throwsNoInputStreamException(java.nio.file.Path)] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withoutFlagsSameSrcToCurrFolder_throwException()] (24 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicTest]/[method:teeFromStdin_noAppendOneFileNameWithMultipleLineInput_returnsCorrectString()] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest]/[method:cd_nullArgument_throwsNullArgumentException()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFiles_emptyFile_returnsAllZeros()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_singleFileCountLinesCaseInsensitivePrintName_printsCountWithName()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicIntegrationTest]/[method:run_writableAndUnWritableFile_printsNoPermAndWritesToStdoutAndFile()] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest]/[method:run_singleDirectoryWithFilesSortFlag_displaysSortedFilesAndDirectories()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicIntegrationTest]/[method:sortFromFiles_reverseOrder_reverseSortedList()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_multipleFilesCountLinesCaseInsensitive_printsCountWithNames()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withFlagRenameOneSubFileIntoSubFile_renameSubFile()] (22 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_multipleFilesAndDirectoriesToDirectory_copiesToDirectory()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesAllArguments_returnsItself()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_multipleFiles_printsLinesWithNames()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_nonexistentDirectoryToDirectoryWithFlag_throws()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest]/[method:run_singleEmptyFileFlag_displaysEmpty()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest]/[method:run_noDirectoriesNoFlags_displaysFilesAndDirectories()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest]/[method:run_singleEmptyDirectoryNoFlags_displaysEmpty()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicTest]/[method:removeTest_removeSingleFileNoFlag_removesFile()] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest]/[method:resolvePaths_withListOfDirectory_returnsListOfPath()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileNoFlags_displaysLinesWordsBytesFilename()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_multipleDirectoriesToDirectory_copiesToDirectory()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_directory_throws()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IOUtilsTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IOUtilsTest]/[method:resolveFilePath_validFilename_returnCorrectPath()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_fileToEmptyDirectory_copiesToDirectory()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_nonExistentNonDirDestFile_throwsException()] (22 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_multipleFilesToFile_throws()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest]/[method:run_singleEmptyFileNoFlag_displaysEmpty()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withFlag2ArgsDestFileExist_noChange()] (20 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicTest]/[method:catFiles_singleFileSpecifiedNoFlagAbsolutePath_returnsFileContentString()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileInterleavedDuplicatesCountOnly_success()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicTest]/[method:mvFilesToFolder_multipleSourceFile_filesMoved()] (24 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withoutFlagMoveOneSubFileIntoSubSFolder_movedIntoSubFolder()] (26 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest]/[method:cpFilesToFolder_multipleFilesToDirectory_copiesToDirectory()] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_unwritableDestFileWithFlag_noChange()] (25 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest]/[method:cpSrcFileToDestFile_nonemptyTextFileToNonExistingFileRecursive_newFileCreatedWithSameContent()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest]/[method:buildResult_listAllContentsSuccessfully_throwsNoException()] (8 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicIntegrationTest]/[method:run_multipleFileNoAppend_writeToFileAndStdout()] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest]/[method:resolvePath_withStringDirectory_returnsPath()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest]/[method:run_singleDirectoryWithNonemptyDirectoriesNoFlags_displaysFilesAndDirectories()] (13 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicTest]/[method:removeTest_removeEmptyFolderNoFlag_throwsException()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.PasteApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.PasteApplicationPublicIntegrationTest]/[method:run_singleFileSingleStdinDashNoFlag_displaysNonParallelMergedFileStdinContents()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_existentNonDirDestFile_throwsException()] (25 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileInterleavedDuplicatesRepeatedOnly_success()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest]/[method:cd_emptyStringArgument_cdToHomeDirectory()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IOUtilsTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IOUtilsTest]/[method:openInputStream_invalidFilename_throwShellException(java.nio.file.Path)] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationTest]/[method:grepFromFiles_withHFlagValidPatternValidFile_returnsFileNameWithPatternMatching()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_multipleFilesAndDirectoriesToFile_throws()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest]/[method:cd_multipleArguments_throwsFileNotFoundException(java.nio.file.Path)] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_multipleFilesPrintNameCaseInsensitive_printsLines()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicIntegrationTest]/[method:run_singleFileAppend_writeToFileAndStdout()] (8 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest]/[method:cpSrcFileToDestFile_directoryToNonexistentDirectoryNonRecursive_throws()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationTest]/[method:remove_invalidFileName_throwsRmException()] (13 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicIntegrationTest]/[method:sortFromFiles_caseIndependent_caseIndependentSortedList()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_stdinAndSingleFileWithSingleLineText_returnsLinesWordsBytesTotalCount()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_singleFileCountLinesCaseInsensitive_printsCount()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest]/[method:getRelativeToCwd_withPath_returnsPath()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_directoryToFile_throws()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_nonExistentDestFolder_throwsException()] (15 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest]/[method:run_singleStdinDashSingleFileNoFlag_displaysCatStdinFileContents()] (13 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.PasteApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.PasteApplicationPublicIntegrationTest]/[method:run_singleStdinDashSingleFileNoFlag_displaysMergedStdinFileContents()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest]/[method:run_multipleFilesEmptyDirectories_deletesAll()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest]/[method:cd_singleRelativePath_cdToCorrectDirectory(java.nio.file.Path)] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest]/[method:run_singleFileFlag_displaysNumberedFileContents()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicTest]/[method:moveSrcFileToDestFile_validFolder_folderRenamed()] (14 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withoutFlags2ArgsDestFileNonExist_renameFile()] (16 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withoutFlagsMoveOneFolderIntoFolder_movedIntoFolder()] (25 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_noMatch_printsNothing()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicTest]/[method:listFolderContent_singleFolder2LevelsDownSpecified_returnsFolderContent()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicTest]/[method:removeTest_removeMultipleFilesNoFlag_removesSelectedFiles()] (8 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_singleFileWithSingleLineTextAndStdin_returnsLinesWordsBytesTotalCount()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_unwritableSrcFile_throwsException()] (17 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest]/[method:cd_singleAbsolutePath_cdToCorrectDirectory(java.nio.file.Path)] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesCountAndAllRepeatedOnly_returnsCountRepeated()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicTest]/[method:removeTest_removeFolderRecurseFlag_removesAllFoldersAndFiles()] (11 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_multipleDirectoriesToFile_throws()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_multipleFilesCountLines_printsCountWithNames()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicTest]/[method:removeTest_removeEmptyFolderEmptyFlag_removesFolder()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicTest]/[method:listFolderContent_singleFolderSpecified_returnsFolderContent()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest]/[method:run_emptyStdout_throwsException()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicTest]/[method:teeFromStdin_noAppendOneFileNameWithOneLineInput_returnsCorrectString()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withFlagsMoveFilesWithSameNameIntoFolder_movedIntoFolderWithoutOverriding()] (31 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withFlags2ArgsDestFoldersNonExist_renameFile()] (17 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicTest]/[method:changeToDirectory_invalidPath_correctlyChangesEnvironment()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesCountOnly_returnsCount()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest]/[method:run_singleDirectoryWithNonemptyDirectoriesRecursiveFlag_displaysFilesAndDirectoriesRecursively()] (23 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileWordsFlag_displaysWordsFilename()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_directoryToNonexistentFile_createsDirectoryWithDestNameWithSrcContent()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileInterleavedDuplicatesNoArguments_success()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest]/[method:run_multipleFilesDirectories_deletesAll()] (11 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withoutFlagMoveOneSubFileIntoFolder_movedIntoFolder()] (24 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest]/[method:run_multipleFilesFlag_displaysNumberedCatFileContents()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_singleFilePrintNameCaseInsensitive_printsLinesWithName()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest]/[method:listCwdContent_listContentsSuccessfully_throwsNoException()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_directoryToNonexistentDirectoryWithoutFlag_throws()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withoutFlag2ArgsDestExist_removeSrcAndOverrideFile()] (24 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest]/[method:cpFilesToFolder_multipleFilesAndDirectoriesToFile_throws()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IOUtilsTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IOUtilsTest]/[method:openInputStream_validFilename_returnCorrectInputStream(java.nio.file.Path)] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_emptyFileToNonemptyFile_overwritesDestWithEmpty()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest]/[method:run_multipleEmptyDirectoriesNoFlags_displaysEmpty()] (8 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileInterleavedDuplicatesAllRepeatedOnly_success()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest]/[method:run_multipleFilesNoFlag_displaysCatFileContents()] (11 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicTest]/[method:catFiles_folderSpecifiedAbsolutePath_throwsException()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_singleFileCaseInsensitive_printsLines()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_emptyFile_returnsEmpty()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_singleFileWithSingleLineTextBytesOptionAndStdin_returnBytesTotalCount()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_multipleFiles_displaysLinesWordsBytesFilenameTotal()] (10 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.PasteApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.PasteApplicationPublicIntegrationTest]/[method:run_singleFileNoFlag_displaysFileContents()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_nonemptyFileToEmptyFile_copiesContentToDest()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_singleFileCountLinesPrintName_printsCountWithName()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest]/[method:run_noDirectoriesSortFlag_displaysSortedFilesAndDirectories()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_fileToNonemptyDirectory_copiesToDirectory()] (10 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest]/[method:run_singleFile_deletesFile()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_invalidSrcFilesAfter_throwsException()] (26 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_directoryToDirectoryWithoutFlag_throws()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.PasteApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.PasteApplicationPublicTest]/[method:mergeFile_noSerialOneFile_returnsItself()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicIntegrationTest]/[method:run_cdIntoFile_throwsException()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFiles_singleFileWithSingleLineTextLinesOption_returnLinesCount()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_multipleFilesCountLinesPrintName_printsCountWithNames()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicIntegrationTest]/[method:run_singleFileAbsolutePath_writeToFileAndStdout()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_singleFileCountLines_printsCount()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileAllFlags_displaysLinesWordsBytesFilename()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileNoDuplicatesAllRepeatedOnly_returnsEmpty()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_multipleFilesCountLinesCaseInsensitivePrintName_printsCountWithNames()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_multipleFilesToDirectory_copiesToDirectory()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationTest]/[method:grepFromFiles_withCFlagValidPatternValidFile_returnsPatternCount()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest]/[method:run_singleFileSingleStdinDashNoFlag_displaysCatFileStdinContents()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest]/[method:run_multipleEmptyFilesNoFlag_displaysEmpty()] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest]/[method:run_directoryWithFiles_deletesDirectory()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicIntegrationTest]/[method:run_cdIntoValidRelativePath_success()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_stdinAndFileCaseInsensitivePrintName_printsLinesWithName()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicIntegrationTest]/[method:run_invalidRelativePath_throwsException()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicTest]/[method:teeFromStdin_appendSingleFilenamesWithSingleLineInput_returnsCorrectString()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicTest]/[method:sortFromFiles_isFirstWordNumber_returnsSortedList()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_stdinAndFileCountLinesCaseInsensitivePrintName_printsCountWithName()] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CatApplicationPublicIntegrationTest]/[method:run_multipleEmptyFilesFlag_displaysEmpty()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesNoArguments_onlyOneResult()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_singleFileRegex_printsLines()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IOUtilsTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IOUtilsTest]/[method:resolveFilePath_invalidFilename_throwInvalidPathException()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicIntegrationTest]/[method:sortFromFiles_isFirstWordNumber_returnsSortedList()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesRepeatedOnly_onlyOneResult()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesAllRepeatedOnly_returnsItself()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.PasteApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.PasteApplicationPublicIntegrationTest]/[method:run_multipleFilesNoFlag_displaysMergedFileContents()] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest]/[method:formatContents_listAllContentsSuccessfully_throwsNoException()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFiles_singleFileWithSingleLineTextBytesOption_returnBytesCount()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicTest]/[method:listFolderContent_multipleFoldersSpecified_returnsMultipleFoldersContent()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest]/[method:run_listAllRecursiveSuccessfully_throwsNoException()] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withFlags2ArgsDiffFileTypesNonExist_convertFolderToFile()] (22 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_singleFileWithSingleLineTextLinesOptionAndStdin_returnLinesTotalCount()] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_unwritableDestFileWithoutFlag_throwsException()] (21 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest]/[method:cd_nullOutputStream_throwsNoOutputStreamException(java.nio.file.Path)] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileLinesFlag_displaysLinesFilename()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicTest]/[method:cpSrcFileToDestFile_nonemptyFileToNonExistingFileNotRecursive_newFileCreatedWithSameContent()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_singleFile_printsLine()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest]/[method:listFolderContent_withRecursiveAndNoFolder_throwsNoException()] (66 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicIntegrationTest]/[method:run_multipleFileAppend_writeToFileAndStdout()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest]/[method:run_noDirectoriesRecursiveFlag_displaysFilesAndDirectoriesRecursively()] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileNoDuplicatesCountOnly_allOneCounts()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest]/[method:run_absolutePath_deletesDirectory()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationTest]/[method:grepFromFiles_withIFlagValidPatternValidFile_returnsCaseInsensitiveMatching()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest]/[method:run_singleDirectoryWithEmptyDirectoryNoFlags_displaysDirectory()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.TeeApplicationPublicIntegrationTest]/[method:run_singleFileNoAppend_writeToFileAndStdout()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicTest]/[method:sortFromFiles_reverseOrder_reverseSortedList()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationPublicIntegrationTest]/[method:run_cdIntoNestedFolder_success()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicTest]/[method:grepFromFiles_countLinesOptionPatternFile_linesFoundAddedToResults()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_nonExistentFile_throws()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_nonemptyFileToSameFile_throws()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileBytesFlag_displaysBytesFilename()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_nonemptyFileToNonemptyFile_overwritesDest()] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest]/[method:run_multipleDirectoriesWithNonemptyDirectoriesRecursiveFlag_displaysFilesAndDirectoriesRecursively()] (35 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesCountAndRepeatedOnly_returnsCount()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicTest]/[method:mvFilesToFolder_sourceFileNotExisting_fileMoved()] (17 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CpApplicationPublicIntegrationTest]/[method:run_fileToNonexistentFile_createsNewDestFile()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_singleFileWithSingleLineTextWordsOption_returnWordsTotalCount()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicIntegrationTest]/[method:run_withoutFlagMoveOneFileIntoFolder_movedIntoFolder()] (22 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationPublicIntegrationTest]/[method:run_multipleDirectoriesWithNonemptyDirectoriesSortFlag_displaysSortedFilesAndDirectories()] (10 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.MvApplicationPublicTest]/[method:moveSrcFileToDestFile_validFile_fileRenamed()] (14 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicIntegrationTest]/[method:run_singleFilePrintName_printsLinesWithName()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IOUtilsTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IOUtilsTest]/[method:openOutputStream_validFilename_returnCorrectOutputStream(java.nio.file.Path)] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest]/[method:run_directoryInDirectory_deletesDirectory()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.LsApplicationTest]/[method:listFolderContent_noRecursiveAndNoFolder_throwsNoException()] (114 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.SortApplicationPublicTest]/[method:sortFromFiles_noFlags_returnsSortedList()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileAndSingleInput_displaysLinesWordsBytesTotal()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CdApplicationTest]/[method:cd_nonExistingDirectory_throwsFileNotFoundException()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicTest]/[method:removeTest_removeFolderEmptyFlag_throwsException()] (8 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.RmApplicationPublicIntegrationTest]/[method:run_emptyDirectory_deletesDirectory()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.GrepApplicationPublicTest]/[method:grepFromFiles_caseInsensitivePatternFile_linesFoundAddedToResults()] (2 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.11.4
+
+</body>
+</html>

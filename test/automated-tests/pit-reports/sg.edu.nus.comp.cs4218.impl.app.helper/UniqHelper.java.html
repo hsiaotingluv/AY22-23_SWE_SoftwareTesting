@@ -1,0 +1,2334 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>UniqHelper.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package sg.edu.nus.comp.cs4218.impl.app.helper;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.exception.ShellException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.exception.UniqException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.impl.util.IOUtils;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.impl.util.StringUtils;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.File;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.InputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.nio.file.Files;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.nio.file.Path;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_FILE_NOT_FOUND;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_IS_DIR;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_NO_PERM;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public final class UniqHelper {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    private UniqHelper() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static List&#60;String&#62; removeDuplicateLines(InputStream input, Boolean isCount) throws UniqException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            List&#60;String&#62; tokens = IOUtils.getLinesFromInputStream(input);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            List&#60;String&#62; result = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_30'/>
+30
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_30'>1</a>
+<span>
+
+1. removeDuplicateLines : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (tokens.isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                result.add(StringUtils.STRING_NEWLINE);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_32'/>
+32
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_32'>1</a>
+<span>
+
+1. removeDuplicateLines : replaced return value with Collections.emptyList for sg/edu/nus/comp/cs4218/impl/app/helper/UniqHelper::removeDuplicateLines &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                return result;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            String prevLine = tokens.get(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            int countDuplicate = 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_38'/>
+38
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_38'>2</a>
+<span>
+
+1. removeDuplicateLines : negated conditional &rarr; KILLED<br/>
+
+2. removeDuplicateLines : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            for (int i = 1; i &#60; tokens.size(); i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                String currLine = tokens.get(i);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_40'>1</a>
+<span>
+
+1. removeDuplicateLines : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (currLine.equals(prevLine)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_41'>1</a>
+<span>
+
+1. removeDuplicateLines : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    countDuplicate++;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    String line = &#34;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_44'>1</a>
+<span>
+
+1. removeDuplicateLines : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    if (isCount) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        line = countDuplicate + &#34; &#34; + prevLine;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        line = prevLine;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    result.add(line);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    // reset values</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    prevLine = currLine;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    countDuplicate = 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // add last unique line</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            String line = &#34;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_59'/>
+59
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_59'>1</a>
+<span>
+
+1. removeDuplicateLines : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (isCount) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                line = countDuplicate + &#34; &#34; + prevLine;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                line = prevLine;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            result.add(line);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_66'/>
+66
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_66'>1</a>
+<span>
+
+1. removeDuplicateLines : replaced return value with Collections.emptyList for sg/edu/nus/comp/cs4218/impl/app/helper/UniqHelper::removeDuplicateLines &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return result;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        } catch (Exception e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new UniqException(e.getMessage(), e);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static List&#60;String&#62; getDuplicateLines(List&#60;String&#62; tokens, Boolean isRepeated, Boolean isAllRepeated) throws UniqException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            List&#60;String&#62; result = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            for (String str : tokens) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_77'/>
+77
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_77'>1</a>
+<span>
+
+1. getDuplicateLines : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (StringUtils.isBlank(str)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    continue;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                int count = Integer.parseInt(str.split(&#34;\\s+&#34;, 2)[0]);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_82'/>
+82
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_82'>3</a>
+<span>
+
+1. getDuplicateLines : negated conditional &rarr; KILLED<br/>
+
+2. getDuplicateLines : changed conditional boundary &rarr; KILLED<br/>
+
+3. getDuplicateLines : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (isAllRepeated &#38;&#38; count &#62; 1) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_83'>2</a>
+<span>
+
+1. getDuplicateLines : changed conditional boundary &rarr; KILLED<br/>
+
+2. getDuplicateLines : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    for (int i = 0; i &#60; count; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        result.add(str);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_86'/>
+86
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_86'>3</a>
+<span>
+
+1. getDuplicateLines : negated conditional &rarr; KILLED<br/>
+
+2. getDuplicateLines : changed conditional boundary &rarr; KILLED<br/>
+
+3. getDuplicateLines : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                } else if (isRepeated &#38;&#38; count &#62; 1) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    result.add(str);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_90'/>
+90
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_90'>1</a>
+<span>
+
+1. getDuplicateLines : replaced return value with Collections.emptyList for sg/edu/nus/comp/cs4218/impl/app/helper/UniqHelper::getDuplicateLines &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return result;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        } catch (Exception e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new UniqException(e.getMessage(), e);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static boolean writeToFile(String lines, String outputFileName) throws UniqException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            File node = IOUtils.resolveFilePath(outputFileName).toFile();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_100'/>
+100
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_100'>1</a>
+<span>
+
+1. writeToFile : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (node.exists()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_101'/>
+101
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_101'>1</a>
+<span>
+
+1. writeToFile : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (node.isDirectory()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    throw new UniqException(node.getName() + &#34;: &#34; + E_IS_DIR);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_104'/>
+104
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_104'>1</a>
+<span>
+
+1. writeToFile : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (!node.canWrite()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    throw new UniqException(node.getName() + &#34;: &#34; + E_NO_PERM);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            byte[] strToBytes = lines.getBytes();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            Files.write(node.toPath(), strToBytes);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_110'/>
+110
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_110'>1</a>
+<span>
+
+1. writeToFile : replaced boolean return with false for sg/edu/nus/comp/cs4218/impl/app/helper/UniqHelper::writeToFile &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        } catch (UniqException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw e;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        } catch (IOException | ShellException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new UniqException(e.getMessage(), e);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static void validatePath(Path path) throws UniqException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_120'/>
+120
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_120'>2</a>
+<span>
+
+1. validatePath : negated conditional &rarr; KILLED<br/>
+
+2. validatePath : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (Files.exists(path) &#38;&#38; !Files.isReadable(path)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new UniqException(E_NO_PERM);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_124'/>
+124
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_124'>1</a>
+<span>
+
+1. validatePath : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!Files.exists(path)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new UniqException(path.getFileName() + &#34;: &#34; + E_FILE_NOT_FOUND);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_128'/>
+128
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_128'>1</a>
+<span>
+
+1. validatePath : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (Files.isDirectory(path)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new UniqException(path.getFileName() + &#34;: &#34; + E_IS_DIR);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d9ff53_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_30'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromStdIn_emptyFile_returnsEmpty()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_32'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeDuplicateLines<br/><b>Killed by : </b>none</span></span> replaced return value with Collections.emptyList for sg/edu/nus/comp/cs4218/impl/app/helper/UniqHelper::removeDuplicateLines &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromStdIn_noAdjacentDuplicates_success()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>removeDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromStdIn_noAdjacentDuplicates_success()]</span></span> changed conditional boundary &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromStdIn_noAdjacentDuplicates_success()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:removeDuplicateLines_validInputStreamAndCount_returnsCorrectOutput()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromStdIn_noAdjacentDuplicates_success()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_59'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromStdIn_noAdjacentDuplicates_success()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_66'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromStdIn_noAdjacentDuplicates_success()]</span></span> replaced return value with Collections.emptyList for sg/edu/nus/comp/cs4218/impl/app/helper/UniqHelper::removeDuplicateLines &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:getDuplicateLines_validInputStreamRepeatAll_returnsCorrectOutput()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:getDuplicateLines_validInputStreamRepeatAll_returnsCorrectOutput()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:getDuplicateLines_validInputStreamRepeatAll_returnsCorrectOutput()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:getDuplicateLines_validInputStreamRepeatAll_returnsCorrectOutput()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:getDuplicateLines_validInputStreamRepeatAll_returnsCorrectOutput()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:getDuplicateLines_validInputStreamRepeatAll_returnsCorrectOutput()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:getDuplicateLines_validInputStreamRepeatOnce_returnsCorrectOutput()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:getDuplicateLines_validInputStreamRepeatOnce_returnsCorrectOutput()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:getDuplicateLines_validInputStreamRepeatOnce_returnsCorrectOutput()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_90'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDuplicateLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:getDuplicateLines_validInputStreamRepeatAll_returnsCorrectOutput()]</span></span> replaced return value with Collections.emptyList for sg/edu/nus/comp/cs4218/impl/app/helper/UniqHelper::getDuplicateLines &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_100'>100</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_100'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>writeToFile<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:writeToFile_fileIsADirectory_throwsUniqException(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_101'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>writeToFile<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:writeToFile_fileIsADirectory_throwsUniqException(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_104'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>writeToFile<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_inputFileToOutputFile_displaysNewlineAndOverwritesOutputFile()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_110'>110</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_110'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>writeToFile<br/><b>Killed by : </b>none</span></span> replaced boolean return with false for sg/edu/nus/comp/cs4218/impl/app/helper/UniqHelper::writeToFile &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_120'>120</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_120'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>validatePath<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#22]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>validatePath<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_emptyFile_returnsEmpty()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_124'>124</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_124'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>validatePath<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_emptyFile_returnsEmpty()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d9ff53_128'>128</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d9ff53_128'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>validatePath<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_emptyFile_returnsEmpty()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesCountAndAllRepeatedOnly_returnsCountRepeated()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_nonexistentInputFile_throws()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_noFilesWithCountAndDuplicateFlags_readsFromInputAndDisplaysCountOfRepeatedAdjacentLinesOnlyOnce()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesNoArguments_onlyOneResult()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesAllArguments_returnsItself()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesRepeatedOnly_onlyOneResult()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:removeDuplicateLines_validInputStreamAndCount_returnsCorrectOutput()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:run_twoFilesSpecified_usesFileAndWritesToFileSuccessfully(java.nio.file.Path)] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesAllRepeatedOnly_returnsItself()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#22] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_directory_throws()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesCountOnly_returnsCount()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_noFilesWithDuplicateAndAllDuplicateFlags_readsFromInputAndDisplaysRepeatedAdjacentLinesRepeatedly()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileInterleavedDuplicatesCountOnly_success()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileInterleavedDuplicatesNoArguments_success()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:writeToFile_validInputs_writesSuccessfully(java.nio.file.Path)] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromStdIn_noAdjacentDuplicates_success()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#55] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_noFilesWithDuplicateFlag_readsFromInputAndDisplaysRepeatedAdjacentLinesOnlyOnce()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#57] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#59] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#58] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileNoDuplicatesRepeatedOnly_returnsEmpty()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#60] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_inputFileToOutputFile_displaysNewlineAndOverwritesOutputFile()] (14 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_noFilesWithCountFlag_readsFromInputAndDisplaysCountOfAdjacentLines()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileNoDuplicatesCountOnly_allOneCounts()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromStdIn_allDuplicates_success()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#54] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#56] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileInterleavedDuplicatesRepeatedOnly_success()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileInterleavedDuplicatesAllRepeatedOnly_success()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromStdIn_interleavedDuplicates_success()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_nonExistentFile_throws()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_emptyFile_returnsEmpty()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#22] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:writeToFile_fileIsADirectory_throwsUniqException(java.nio.file.Path)] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_emptyInputFile_readsFileAndDisplaysNewline()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#53] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesCountAndRepeatedOnly_returnsCount()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileNoDuplicatesNoArguments_equalToItself()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileAllDuplicatesRepeatedAndAllRepeatedOnly_returnsItself()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#60] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_nonexistentInputFileToOutputFile_throws()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromStdIn_emptyFile_returnsEmpty()] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#54] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_nonemptyInputFile_readsFileAndDisplaysAdjacentLines()] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#56] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicTest]/[method:uniqFromFile_fileNoDuplicatesAllRepeatedOnly_returnsEmpty()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_noFilesWithAllDuplicateFlag_readsFromInputAndDisplaysRepeatedAdjacentLinesRepeatedly()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#58] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#59] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:uniqFromFile_validFileInput_returnsOutputWithDuplicateLinesRemoved(java.nio.file.Path)] (161 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_nonexistentInputFileToNonexistentOutputFile_throws()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_noFilesWithoutFlag_readsFromInputAndDisplaysAdjacentLines()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationPublicIntegrationTest]/[method:run_inputFileToNonexistentOutputFile_displaysNewlineAndCreatesOutputFile()] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#53] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:getDuplicateLines_validInputStreamRepeatOnce_returnsCorrectOutput()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#55] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:getDuplicateLines_validInputStreamRepeatAll_returnsCorrectOutput()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:removeDuplicateLines_validInputStreamWithoutCount_returnsCorrectOutput()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#57] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.UniqApplicationTest]/[method:run_oneOutputFileSpecified_usesStdinAndWritesToFileSuccessfully()] (4 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.11.4
+
+</body>
+</html>

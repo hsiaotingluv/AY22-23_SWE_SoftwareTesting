@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>WcArgsParser.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package sg.edu.nus.comp.cs4218.impl.parser;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.exception.InvalidArgsException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class WcArgsParser extends ArgsParser {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final char FLAG_BYTES_OPTION = &#39;c&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final char FLAG_LINES_OPTION = &#39;l&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final char FLAG_WORDS_OPTION = &#39;w&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private boolean lines, words, bytes;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public WcArgsParser() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        legalFlags.add(FLAG_BYTES_OPTION);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        legalFlags.add(FLAG_LINES_OPTION);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        legalFlags.add(FLAG_WORDS_OPTION);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void parse(String... args) throws InvalidArgsException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_23'/>
+23
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_23'>1</a>
+<span>
+
+1. parse : removed call to sg/edu/nus/comp/cs4218/impl/parser/ArgsParser::parse &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        super.parse(args);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_24'/>
+24
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_24'>1</a>
+<span>
+
+1. parse : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (flags.isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            flags.add(&#39;l&#39;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            flags.add(&#39;c&#39;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            flags.add(&#39;w&#39;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isLines() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_32'>2</a>
+<span>
+
+1. isLines : replaced boolean return with true for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::isLines &rarr; KILLED<br/>
+
+2. isLines : replaced boolean return with false for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::isLines &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return flags.contains(FLAG_LINES_OPTION);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isWords() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_36'>2</a>
+<span>
+
+1. isWords : replaced boolean return with true for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::isWords &rarr; KILLED<br/>
+
+2. isWords : replaced boolean return with false for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::isWords &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return flags.contains(FLAG_WORDS_OPTION);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isBytes() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_40'>2</a>
+<span>
+
+1. isBytes : replaced boolean return with true for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::isBytes &rarr; KILLED<br/>
+
+2. isBytes : replaced boolean return with false for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::isBytes &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return flags.contains(FLAG_BYTES_OPTION);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;String&#62; getFiles() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_44'>1</a>
+<span>
+
+1. getFiles : replaced return value with Collections.emptyList for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::getFiles &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return nonFlagArgs;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isReadingFromStdinOnly() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_48'/>
+48
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_48'>2</a>
+<span>
+
+1. isReadingFromStdinOnly : replaced boolean return with true for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::isReadingFromStdinOnly &rarr; KILLED<br/>
+
+2. isReadingFromStdinOnly : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return nonFlagArgs.size() == 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@74245401_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@74245401_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@74245401_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@74245401_23'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parse<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidSyntax_shouldReturnErrorMessage(%5BLjava.lang.String;)]/[test-template-invocation:#9]</span></span> removed call to sg/edu/nus/comp/cs4218/impl/parser/ArgsParser::parse &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@74245401_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@74245401_24'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parse<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_blankStrings_shouldReturnEmptyFlagsAndSameNonFlags(java.lang.String)]/[test-template-invocation:#6]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@74245401_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@74245401_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isLines_differentFlagGiven_shouldReturnFalse()]</span></span> replaced boolean return with true for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::isLines &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isLines_validFlagGiven_shouldReturnTrue()]</span></span> replaced boolean return with false for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::isLines &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@74245401_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@74245401_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isWords<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isWords_differentFlagGiven_shouldReturnFalse()]</span></span> replaced boolean return with true for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::isWords &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isWords<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isWords_validFlagGiven_shouldReturnTrue()]</span></span> replaced boolean return with false for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::isWords &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@74245401_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@74245401_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isBytes<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isBytes_differentFlagGiven_shouldReturnFalse()]</span></span> replaced boolean return with true for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::isBytes &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isBytes<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isBytes_validFlagGiven_shouldReturnTrue()]</span></span> replaced boolean return with false for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::isBytes &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@74245401_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@74245401_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFiles<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:getFileNames_oneArg_shouldReturnOneFileName()]</span></span> replaced return value with Collections.emptyList for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::getFiles &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@74245401_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@74245401_48'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isReadingFromStdinOnly<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleInputDash_displaysLinesWordsBytes()]</span></span> replaced boolean return with true for sg/edu/nus/comp/cs4218/impl/parser/WcArgsParser::isReadingFromStdinOnly &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isReadingFromStdinOnly<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleInputNoFileSpecified_displaysLinesWordsBytes()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_allValidFlag_shouldReturnMatchingFlagGiven(java.lang.String)]/[test-template-invocation:#2] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidFlag_shouldReturnErrorMessage(java.lang.String)]/[test-template-invocation:#5] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidFlag_shouldReturnErrorMessage(java.lang.String)]/[test-template-invocation:#3] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_validSyntax_shouldReturnNothing(%5BLjava.lang.String;)]/[test-template-invocation:#11] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#43] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#45] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#47] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isLines_uppercaseFlagGiven_shouldReturnErrorMessage()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#49] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#47] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#4] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#49] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#50] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileNoFlags_displaysLinesWordsBytesFilename()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_blankStrings_shouldReturnEmptyFlagsAndSameNonFlags(java.lang.String)]/[test-template-invocation:#6] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isBytes_uppercaseFlagGiven_shouldReturnErrorMessage()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_blankStrings_shouldReturnEmptyFlagsAndSameNonFlags(java.lang.String)]/[test-template-invocation:#4] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isLines_differentFlagGiven_shouldReturnFalse()] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileWordsFlag_displaysWordsFilename()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#43] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_blankStrings_shouldReturnEmptyFlagsAndSameNonFlags(java.lang.String)]/[test-template-invocation:#2] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#45] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isBytes_validFlagGiven_shouldReturnTrue()] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_allValidFlagTogether_shouldReturnMatchingFlagGiven(java.lang.String)]/[test-template-invocation:#6] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#15] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_validSyntax_shouldReturnNothing(%5BLjava.lang.String;)]/[test-template-invocation:#1] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isWords_lowercaseFlagGiven_shouldReturnErrorMessage()] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_allValidFlagTogether_shouldReturnMatchingFlagGiven(java.lang.String)]/[test-template-invocation:#2] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_allValidFlagTogether_shouldReturnMatchingFlagGiven(java.lang.String)]/[test-template-invocation:#4] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isLines_validFlagGiven_shouldReturnTrue()] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#14] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_validSyntax_shouldReturnNothing(%5BLjava.lang.String;)]/[test-template-invocation:#7] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_validSyntax_shouldReturnNothing(%5BLjava.lang.String;)]/[test-template-invocation:#9] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidSyntax_shouldReturnErrorMessage(%5BLjava.lang.String;)]/[test-template-invocation:#1] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileLinesFlag_displaysLinesFilename()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidSyntax_shouldReturnErrorMessage(%5BLjava.lang.String;)]/[test-template-invocation:#3] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_validSyntax_shouldReturnNothing(%5BLjava.lang.String;)]/[test-template-invocation:#3] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidSyntax_shouldReturnErrorMessage(%5BLjava.lang.String;)]/[test-template-invocation:#5] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_validSyntax_shouldReturnNothing(%5BLjava.lang.String;)]/[test-template-invocation:#5] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:getFileNames_oneArg_shouldReturnOneFileName()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidSyntax_shouldReturnErrorMessage(%5BLjava.lang.String;)]/[test-template-invocation:#7] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#50] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#4] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidSyntax_shouldReturnErrorMessage(%5BLjava.lang.String;)]/[test-template-invocation:#9] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleInputDash_displaysLinesWordsBytes()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidFlag_shouldReturnErrorMessage(java.lang.String)]/[test-template-invocation:#1] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isWords_validFlagGiven_shouldReturnTrue()] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidFlag_shouldReturnErrorMessage(java.lang.String)]/[test-template-invocation:#6] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_allValidFlag_shouldReturnMatchingFlagGiven(java.lang.String)]/[test-template-invocation:#3] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidFlag_shouldReturnErrorMessage(java.lang.String)]/[test-template-invocation:#4] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_validSyntax_shouldReturnNothing(%5BLjava.lang.String;)]/[test-template-invocation:#10] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_allValidFlag_shouldReturnMatchingFlagGiven(java.lang.String)]/[test-template-invocation:#1] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_validSyntax_shouldReturnNothing(%5BLjava.lang.String;)]/[test-template-invocation:#12] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#23] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#44] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileUnknownFlag_throws()] (11 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#46] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#48] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileBytesFlag_displaysBytesFilename()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#48] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleInputNoFileSpecified_displaysLinesWordsBytes()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_multipleFiles_displaysLinesWordsBytesFilenameTotal()] (10 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[method:main_validCommandDoubleEOF_noError()] (92 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:getFileNames_multipleArgs_shouldReturnMultipleFileNames()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#42] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_blankStrings_shouldReturnEmptyFlagsAndSameNonFlags(java.lang.String)]/[test-template-invocation:#5] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#44] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_blankStrings_shouldReturnEmptyFlagsAndSameNonFlags(java.lang.String)]/[test-template-invocation:#3] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandWithIO_noError(java.lang.String, java.lang.String, boolean, boolean, boolean, java.nio.file.Path)]/[test-template-invocation:#3] (11 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isBytes_differentFlagGiven_shouldReturnFalse()] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#46] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#23] (19 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_blankStrings_shouldReturnEmptyFlagsAndSameNonFlags(java.lang.String)]/[test-template-invocation:#1] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#14] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileAllFlags_displaysLinesWordsBytesFilename()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileAndSingleInput_displaysLinesWordsBytesTotal()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_allValidFlagTogether_shouldReturnMatchingFlagGiven(java.lang.String)]/[test-template-invocation:#1] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_allValidFlagTogether_shouldReturnMatchingFlagGiven(java.lang.String)]/[test-template-invocation:#3] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[method:isWords_differentFlagGiven_shouldReturnFalse()] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_allValidFlagTogether_shouldReturnMatchingFlagGiven(java.lang.String)]/[test-template-invocation:#5] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#15] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_validSyntax_shouldReturnNothing(%5BLjava.lang.String;)]/[test-template-invocation:#6] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidSyntax_shouldReturnErrorMessage(%5BLjava.lang.String;)]/[test-template-invocation:#2] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_validSyntax_shouldReturnNothing(%5BLjava.lang.String;)]/[test-template-invocation:#8] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_validSyntax_shouldReturnNothing(%5BLjava.lang.String;)]/[test-template-invocation:#2] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidSyntax_shouldReturnErrorMessage(%5BLjava.lang.String;)]/[test-template-invocation:#4] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#42] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidSyntax_shouldReturnErrorMessage(%5BLjava.lang.String;)]/[test-template-invocation:#6] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_validSyntax_shouldReturnNothing(%5BLjava.lang.String;)]/[test-template-invocation:#4] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidSyntax_shouldReturnErrorMessage(%5BLjava.lang.String;)]/[test-template-invocation:#8] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.parser.WcArgsParserTest]/[test-template:parse_invalidFlag_shouldReturnErrorMessage(java.lang.String)]/[test-template-invocation:#2] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.11.4
+
+</body>
+</html>

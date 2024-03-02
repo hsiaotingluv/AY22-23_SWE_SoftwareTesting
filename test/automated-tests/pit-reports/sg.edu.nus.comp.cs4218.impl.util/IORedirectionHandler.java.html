@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>IORedirectionHandler.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package sg.edu.nus.comp.cs4218.impl.util;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.exception.AbstractApplicationException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.exception.ShellException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.FileNotFoundException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.InputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.OutputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.LinkedList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ListIterator;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_INVALID_FILE;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_SYNTAX;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.StringUtils.CHAR_REDIR_INPUT;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.StringUtils.CHAR_REDIR_OUTPUT;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class IORedirectionHandler {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final List&#60;String&#62; argsList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private List&#60;String&#62; noRedirArgsList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private InputStream inputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private OutputStream outputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public IORedirectionHandler(List&#60;String&#62; argsList, InputStream origInputStream, OutputStream origOutputStream) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.argsList = argsList;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.inputStream = origInputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.outputStream = origOutputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static boolean isRedirOperator(String str) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_31'>3</a>
+<span>
+
+1. isRedirOperator : negated conditional &rarr; KILLED<br/>
+
+2. isRedirOperator : negated conditional &rarr; KILLED<br/>
+
+3. isRedirOperator : replaced boolean return with true for sg/edu/nus/comp/cs4218/impl/util/IORedirectionHandler::isRedirOperator &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return str.equals(String.valueOf(CHAR_REDIR_INPUT)) || str.equals(String.valueOf(CHAR_REDIR_OUTPUT));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void extractRedirOptions() throws AbstractApplicationException, ShellException, FileNotFoundException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_35'/>
+35
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_35'>2</a>
+<span>
+
+1. extractRedirOptions : negated conditional &rarr; KILLED<br/>
+
+2. extractRedirOptions : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (argsList == null || argsList.isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new ShellException(E_SYNTAX);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        noRedirArgsList = new LinkedList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // extract redirection operators (with their corresponding files) from argsList</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        ListIterator&#60;String&#62; argsIterator = argsList.listIterator();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_43'/>
+43
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_43'>1</a>
+<span>
+
+1. extractRedirOptions : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        while (argsIterator.hasNext()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            String arg = argsIterator.next();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // leave the other args untouched</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_47'/>
+47
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_47'>1</a>
+<span>
+
+1. extractRedirOptions : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (!isRedirOperator(arg)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                noRedirArgsList.add(arg);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                continue;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // if current arg is &#60; or &#62;, fast-forward to the next arg to extract the specified file</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_53'/>
+53
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_53'>1</a>
+<span>
+
+1. extractRedirOptions : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (!argsIterator.hasNext()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                throw new ShellException(E_SYNTAX);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            String file = argsIterator.next();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_59'/>
+59
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_59'>1</a>
+<span>
+
+1. extractRedirOptions : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (isRedirOperator(file)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                throw new ShellException(E_INVALID_FILE);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // handle quoting + globing + command substitution in file arg</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            List&#60;String&#62; fileSegment = ArgumentResolver.resolveOneArgument(file);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_65'>2</a>
+<span>
+
+1. extractRedirOptions : negated conditional &rarr; KILLED<br/>
+
+2. extractRedirOptions : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (fileSegment.size() &#62; 1) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                // ambiguous redirect if file resolves to more than one parsed arg</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                throw new ShellException(E_SYNTAX);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            file = fileSegment.get(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // replace existing inputStream / outputStream</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_72'/>
+72
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_72'>1</a>
+<span>
+
+1. extractRedirOptions : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (arg.equals(String.valueOf(CHAR_REDIR_INPUT))) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_73'/>
+73
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_73'>1</a>
+<span>
+
+1. extractRedirOptions : removed call to sg/edu/nus/comp/cs4218/impl/util/IOUtils::closeInputStream &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                IOUtils.closeInputStream(inputStream);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                inputStream = IOUtils.openInputStream(file);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_75'>1</a>
+<span>
+
+1. extractRedirOptions : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            } else if (arg.equals(String.valueOf(CHAR_REDIR_OUTPUT))) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_76'/>
+76
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_76'>1</a>
+<span>
+
+1. extractRedirOptions : removed call to sg/edu/nus/comp/cs4218/impl/util/IOUtils::closeOutputStream &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                IOUtils.closeOutputStream(outputStream);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                outputStream = IOUtils.openOutputStream(file);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;String&#62; getNoRedirArgsList() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_83'>1</a>
+<span>
+
+1. getNoRedirArgsList : replaced return value with Collections.emptyList for sg/edu/nus/comp/cs4218/impl/util/IORedirectionHandler::getNoRedirArgsList &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return noRedirArgsList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public InputStream getInputStream() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_87'/>
+87
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_87'>1</a>
+<span>
+
+1. getInputStream : replaced return value with null for sg/edu/nus/comp/cs4218/impl/util/IORedirectionHandler::getInputStream &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return inputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public OutputStream getOutputStream() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_91'/>
+91
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_91'>1</a>
+<span>
+
+1. getOutputStream : replaced return value with null for sg/edu/nus/comp/cs4218/impl/util/IORedirectionHandler::getOutputStream &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return outputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@685a5652_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@685a5652_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isRedirOperator<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#24]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isRedirOperator<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#24]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isRedirOperator<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#24]</span></span> replaced boolean return with true for sg/edu/nus/comp/cs4218/impl/util/IORedirectionHandler::isRedirOperator &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@685a5652_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_35'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractRedirOptions<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_nullArgsList_throwShellException()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>extractRedirOptions<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_emptyArgsList_throwShellException()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@685a5652_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_43'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractRedirOptions<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[test-template:extractRedirOptions_invalidFilename_throwShellException(java.lang.String)]/[test-template-invocation:#2]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@685a5652_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_47'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractRedirOptions<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_chainIoRedirection_noExceptions()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@685a5652_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_53'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractRedirOptions<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_chainIoRedirection_noExceptions()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@685a5652_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_59'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractRedirOptions<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_chainIoRedirection_noExceptions()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@685a5652_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractRedirOptions<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_invalidFileArgument_throwShellException()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>extractRedirOptions<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_chainIoRedirection_noExceptions()]</span></span> changed conditional boundary &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@685a5652_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_72'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractRedirOptions<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_chainIoRedirection_noExceptions()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@685a5652_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_73'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractRedirOptions<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_validCommandStringsWithIO_runApplication(java.lang.String, java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#2]</span></span> removed call to sg/edu/nus/comp/cs4218/impl/util/IOUtils::closeInputStream &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@685a5652_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractRedirOptions<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_validArguments_noExceptions()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@685a5652_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_76'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>extractRedirOptions<br/><b>Killed by : </b>none</span></span> removed call to sg/edu/nus/comp/cs4218/impl/util/IOUtils::closeOutputStream &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@685a5652_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNoRedirArgsList<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_validArguments_noExceptions()]</span></span> replaced return value with Collections.emptyList for sg/edu/nus/comp/cs4218/impl/util/IORedirectionHandler::getNoRedirArgsList &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@685a5652_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_87'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getInputStream<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_chainIoRedirection_noExceptions()]</span></span> replaced return value with null for sg/edu/nus/comp/cs4218/impl/util/IORedirectionHandler::getInputStream &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@685a5652_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@685a5652_91'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getOutputStream<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_validArguments_noExceptions()]</span></span> replaced return value with null for sg/edu/nus/comp/cs4218/impl/util/IORedirectionHandler::getOutputStream &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_validCommandStringsWithIO_runApplication(java.lang.String, java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#8] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#28] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#71] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#28] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#24] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandRemoveFile_noError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#4] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#43] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#66] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#14] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_invalidCommandStringsWithIO_throwsError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#3] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#2] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#31] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#5] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#83] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#22] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#68] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandWithIO_noError(java.lang.String, java.lang.String, boolean, boolean, boolean, java.nio.file.Path)]/[test-template-invocation:#2] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#20] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#45] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#8] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#17] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#82] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#16] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#35] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#12] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#32] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#55] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#25] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#18] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#8] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_invalidRedirect_noError(java.lang.String, java.lang.String)]/[test-template-invocation:#5] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#20] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#2] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#10] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#79] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#33] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#56] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_validCommandStringsWithIO_runApplication(java.lang.String, java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#7] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#70] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#27] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.ArgumentResolverIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.ArgumentResolverIntegrationTest]/[test-template:resolveOneArgument_validArguments_returnListWithOneArgs(java.lang.String, java.lang.String)]/[test-template-invocation:#4] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#21] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#23] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#44] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandRemoveFile_noError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#3] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#67] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#29] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#15] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#70] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#29] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_invalidCommandStringsWithIO_throwsError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#2] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#3] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[method:main_validCommandDoubleEOF_noError()] (92 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#6] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#44] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#67] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#21] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandWithIO_noError(java.lang.String, java.lang.String, boolean, boolean, boolean, java.nio.file.Path)]/[test-template-invocation:#3] (11 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#11] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#15] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#81] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#33] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#10] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.ArgumentResolverIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.ArgumentResolverIntegrationTest]/[method:resolveOneArgument_validArguments_returnSegmentedList()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#1] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#34] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#56] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#18] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#9] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#9] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#26] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#17] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_invalidRedirect_noError(java.lang.String, java.lang.String)]/[test-template-invocation:#4] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#1] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#19] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#1] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#9] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#32] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#78] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#55] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#22] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#26] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_validCommandStringsWithIO_runApplication(java.lang.String, java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#2] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandRemoveFile_noError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#2] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#49] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_validOperators_returnTrue(java.lang.String)]/[test-template-invocation:#2] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandsToFile_fileExists(java.lang.String, java.lang.String, boolean, java.nio.file.Path)]/[test-template-invocation:#2] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#16] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#28] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_invalidCommandStringsWithIO_throwsError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#1] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#52] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#22] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[method:main_exit_noError()] (26 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#3] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#20] (132 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandWithIO_noError(java.lang.String, java.lang.String, boolean, boolean, boolean, java.nio.file.Path)]/[test-template-invocation:#4] (8 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#43] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#66] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#10] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#33] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#38] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#15] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#2] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#80] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#18] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#8] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandsToFile_fileExists(java.lang.String, java.lang.String, boolean, java.nio.file.Path)]/[test-template-invocation:#1] (8 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_invalidRedirect_noError(java.lang.String, java.lang.String)]/[test-template-invocation:#7] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_chainIoRedirection_noExceptions()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#39] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#16] (8 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#27] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#6] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#41] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#64] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#4] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#18] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#31] (8 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#54] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#10] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#77] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#27] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#21] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_validCommandStringsWithIO_runApplication(java.lang.String, java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#9] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#29] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#65] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_validCommandStringsWithIO_runApplication(java.lang.String, java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#1] (86 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#20] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandRemoveFile_noError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#1] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_validOperators_returnTrue(java.lang.String)]/[test-template-invocation:#1] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#27] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#17] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[method:evaluate_ioRedirectionHandled_noError()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#1] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#53] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#30] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#29] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#42] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandWithIO_noError(java.lang.String, java.lang.String, boolean, boolean, boolean, java.nio.file.Path)]/[test-template-invocation:#5] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#4] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#65] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#21] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#39] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#16] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandCopyFile_noError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#1] (1202 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#32] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#3] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#17] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_emptyArgsList_throwShellException()] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#54] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#9] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#15] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#38] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#28] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_invalidRedirect_noError(java.lang.String, java.lang.String)]/[test-template-invocation:#6] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_nullArgsList_throwShellException()] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#42] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#7] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#3] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#30] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#53] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#17] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#76] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#20] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#24] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_validCommandStringsWithIO_runApplication(java.lang.String, java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#4] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#47] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#21] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#6] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[test-template:extractRedirOptions_invalidFilename_throwShellException(java.lang.String)]/[test-template-invocation:#1] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#26] (8 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#49] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#50] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#9] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#18] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#64] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#24] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandWithIO_noError(java.lang.String, java.lang.String, boolean, boolean, boolean, java.nio.file.Path)]/[test-template-invocation:#6] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#28] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#41] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#1] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandCopyFile_noError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#2] (11 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#31] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#36] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#4] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#13] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#59] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[test-template:extractRedirOptions_invalidFilename_throwShellException(java.lang.String)]/[test-template-invocation:#2] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#37] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#14] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#62] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#75] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#12] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#4] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#39] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#16] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_invalidRedirect_noError(java.lang.String, java.lang.String)]/[test-template-invocation:#1] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#52] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#6] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#25] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_validCommandStringsWithIO_runApplication(java.lang.String, java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#10] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_validCommandStringsWithIO_runApplication(java.lang.String, java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#3] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#48] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#22] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#48] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#25] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#7] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#51] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#19] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandWithIO_noError(java.lang.String, java.lang.String, boolean, boolean, boolean, java.nio.file.Path)]/[test-template-invocation:#7] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_validArguments_noExceptions()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandRemoveFile_noError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#7] (8 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#40] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#63] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#23] (15 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#27] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#2] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#19] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#37] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#14] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandCopyFile_noError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#3] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#5] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#30] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#15] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#10] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#59] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#36] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#40] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#5] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#63] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#11] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#5] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#74] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#51] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#38] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#13] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.ArgumentResolverIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.ArgumentResolverIntegrationTest]/[test-template:resolveOneArgument_validArguments_returnListWithOneArgs(java.lang.String, java.lang.String)]/[test-template-invocation:#1] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#26] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#26] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#22] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#68] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#45] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_validCommandStringsWithIO_runApplication(java.lang.String, java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#6] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#23] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#47] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#4] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#71] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandRemoveFile_noError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#6] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#7] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_invalidCommandStringsWithIO_throwsError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#5] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#62] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#24] (11 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#6] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#14] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#37] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#34] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#11] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#57] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#11] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#19] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#58] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#60] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_invalidRedirect_noError(java.lang.String, java.lang.String)]/[test-template-invocation:#3] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#2] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#50] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#14] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#73] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#8] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#12] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#35] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[nested-class:ExtractRedirOptions]/[method:extractRedirOptions_invalidFileArgument_throwShellException()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#23] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#25] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandRemoveFile_noError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#5] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#46] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#40] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#69] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_validCommandStringsWithIO_runApplication(java.lang.String, java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#5] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#13] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#69] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#5] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#8] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#61] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_invalidCommandStringsWithIO_throwsError(java.lang.String, java.nio.file.Path)]/[test-template-invocation:#4] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#25] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#46] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#23] (19 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandWithIO_noError(java.lang.String, java.lang.String, boolean, boolean, boolean, java.nio.file.Path)]/[test-template-invocation:#1] (10 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#7] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#35] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#12] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#60] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#36] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.util.IORedirectionHandlerTest]/[test-template:isRedirOperator_invalidOperators_returnFalse(java.lang.String)]/[test-template-invocation:#13] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#58] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#12] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#24] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#61] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#19] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.cmd.CallCommandIntegrationTest]/[test-template:evaluate_invalidRedirect_noError(java.lang.String, java.lang.String)]/[test-template-invocation:#2] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#13] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[method:main_inputStreamIOException_noError()] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#72] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#3] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#11] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#7] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#34] (7 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#57] (5 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.11.4
+
+</body>
+</html>

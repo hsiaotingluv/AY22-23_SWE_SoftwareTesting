@@ -1,0 +1,3292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>WcHelper.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package sg.edu.nus.comp.cs4218.impl.app.helper;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.exception.WcException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.ByteArrayOutputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.File;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.InputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_FILE_NOT_FOUND;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_IS_DIR;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_NO_PERM;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_NULL_POINTER;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.StringUtils.CHAR_TAB;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public final class WcHelper {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int LINES_INDEX = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int WORDS_INDEX = 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int BYTES_INDEX = 2;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    private WcHelper() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns string containing the number of lines, words, and bytes based on data in input.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param isBytes  Boolean option to count the number of Bytes</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param isLines  Boolean option to count the number of lines</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param isWords  Boolean option to count the number of words</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param count    long array containing the count of lines, words, bytes</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param filename String of filename if available</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @throws WcException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static String getCountLine(Boolean isLines, Boolean isWords, Boolean isBytes, long[] count, String... filename) throws WcException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Format all output: &#34; %7d %7d %7d %s&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Output in the following order: lines words bytes filename</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            StringBuilder result = new StringBuilder();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_40'>1</a>
+<span>
+
+1. getCountLine : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (isLines) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                result.append(CHAR_TAB);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                result.append(count[0]);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_44'>1</a>
+<span>
+
+1. getCountLine : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (isWords) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                result.append(CHAR_TAB);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                result.append(count[1]);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_48'/>
+48
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_48'>1</a>
+<span>
+
+1. getCountLine : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (isBytes) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                result.append(CHAR_TAB);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                result.append(count[2]);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_52'/>
+52
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_52'>2</a>
+<span>
+
+1. getCountLine : changed conditional boundary &rarr; KILLED<br/>
+
+2. getCountLine : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (filename.length &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                result.append(String.format(&#34; %s&#34;, filename));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_56'/>
+56
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_56'>1</a>
+<span>
+
+1. getCountLine : replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/impl/app/helper/WcHelper::getCountLine &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return result.toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        } catch (Exception e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new WcException(e.getMessage(), e);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns string containing the number of lines, words, and bytes based on data in input.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param splitList List of String of counted results</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param isBytes   Boolean option to count the number of Bytes</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param isLines   Boolean option to count the number of lines</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param isWords   Boolean option to count the number of words</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param total     long array containing the count of lines, words, bytes</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @throws WcException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static long[] updateCountTotal(List&#60;String&#62; splitList, Boolean isLines, Boolean isWords, Boolean isBytes, long... total) throws WcException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_75'>1</a>
+<span>
+
+1. updateCountTotal : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (splitList.size() == 1) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_76'/>
+76
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_76'>1</a>
+<span>
+
+1. updateCountTotal : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (isLines) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_77'/>
+77
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_77'>1</a>
+<span>
+
+1. updateCountTotal : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    total[0] += Integer.parseInt(splitList.get(0));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_79'/>
+79
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_79'>1</a>
+<span>
+
+1. updateCountTotal : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (isWords) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_80'/>
+80
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_80'>1</a>
+<span>
+
+1. updateCountTotal : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    total[1] += Integer.parseInt(splitList.get(0));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_82'/>
+82
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_82'>1</a>
+<span>
+
+1. updateCountTotal : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (isBytes) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_83'>1</a>
+<span>
+
+1. updateCountTotal : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    total[2] += Integer.parseInt(splitList.get(0));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_85'/>
+85
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_85'>1</a>
+<span>
+
+1. updateCountTotal : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            } else if (splitList.size() == 2) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_86'/>
+86
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_86'>2</a>
+<span>
+
+1. updateCountTotal : negated conditional &rarr; KILLED<br/>
+
+2. updateCountTotal : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (isLines &#38;&#38; isWords) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_87'/>
+87
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_87'>1</a>
+<span>
+
+1. updateCountTotal : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    total[0] += Integer.parseInt(splitList.get(0));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_88'/>
+88
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_88'>1</a>
+<span>
+
+1. updateCountTotal : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    total[1] += Integer.parseInt(splitList.get(1));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_89'/>
+89
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_89'>2</a>
+<span>
+
+1. updateCountTotal : negated conditional &rarr; KILLED<br/>
+
+2. updateCountTotal : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                } else if (isLines &#38;&#38; isBytes) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_90'/>
+90
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_90'>1</a>
+<span>
+
+1. updateCountTotal : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    total[0] += Integer.parseInt(splitList.get(0));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_91'/>
+91
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_91'>1</a>
+<span>
+
+1. updateCountTotal : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    total[2] += Integer.parseInt(splitList.get(1));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_93'/>
+93
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_93'>1</a>
+<span>
+
+1. updateCountTotal : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    total[1] += Integer.parseInt(splitList.get(0));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_94'/>
+94
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_94'>1</a>
+<span>
+
+1. updateCountTotal : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    total[2] += Integer.parseInt(splitList.get(1));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_97'/>
+97
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_97'>1</a>
+<span>
+
+1. updateCountTotal : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                total[0] += Integer.parseInt(splitList.get(0));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_98'/>
+98
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_98'>1</a>
+<span>
+
+1. updateCountTotal : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                total[1] += Integer.parseInt(splitList.get(1));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_99'/>
+99
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_99'>1</a>
+<span>
+
+1. updateCountTotal : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                total[2] += Integer.parseInt(splitList.get(2));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_101'/>
+101
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_101'>1</a>
+<span>
+
+1. updateCountTotal : replaced return value with null for sg/edu/nus/comp/cs4218/impl/app/helper/WcHelper::updateCountTotal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return total;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        } catch (Exception e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new WcException(e.getMessage(), e);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns array containing the number of lines, words, and bytes based on data in InputStream.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param input An InputStream</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @throws IOException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static long[] getCountReport(InputStream input) throws WcException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_115'/>
+115
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_115'>1</a>
+<span>
+
+1. getCountReport : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (input == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new WcException(E_NULL_POINTER);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            long[] result = new long[3]; // lines, words, bytes</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            ByteArrayOutputStream buffer = new ByteArrayOutputStream();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            byte[] data = new byte[1024];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            int inRead = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            boolean inWord = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_125'/>
+125
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_125'>1</a>
+<span>
+
+1. getCountReport : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            while ((inRead = input.read(data, 0, data.length)) != -1) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_126'/>
+126
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_126'>2</a>
+<span>
+
+1. getCountReport : negated conditional &rarr; KILLED<br/>
+
+2. getCountReport : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                for (int i = 0; i &#60; inRead; ++i) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_127'/>
+127
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_127'>1</a>
+<span>
+
+1. getCountReport : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    if (Character.isWhitespace(data[i])) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                        // Use &#60;newline&#62; character here. (Ref: UNIX)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_129'/>
+129
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_129'>1</a>
+<span>
+
+1. getCountReport : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                        if (data[i] == &#39;\n&#39;) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_130'/>
+130
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_130'>1</a>
+<span>
+
+1. getCountReport : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                            ++result[LINES_INDEX];</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_132'/>
+132
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_132'>1</a>
+<span>
+
+1. getCountReport : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                        if (inWord) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_133'/>
+133
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_133'>1</a>
+<span>
+
+1. getCountReport : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                            ++result[WORDS_INDEX];</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_134'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        inWord = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_137'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_138'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        inWord = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_139'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_140'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_141'/>
+141
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_141'>1</a>
+<span>
+
+1. getCountReport : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                result[BYTES_INDEX] += inRead;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_142'/>
+142
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_142'>1</a>
+<span>
+
+1. getCountReport : removed call to java/io/ByteArrayOutputStream::write &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                buffer.write(data, 0, inRead);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_143'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_144'/>
+144
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_144'>1</a>
+<span>
+
+1. getCountReport : removed call to java/io/ByteArrayOutputStream::flush &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            buffer.flush();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_145'/>
+145
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_145'>1</a>
+<span>
+
+1. getCountReport : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (inWord) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_146'/>
+146
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_146'>1</a>
+<span>
+
+1. getCountReport : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                ++result[WORDS_INDEX]; // To handle last word</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_147'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_148'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_149'/>
+149
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_149'>1</a>
+<span>
+
+1. getCountReport : replaced return value with null for sg/edu/nus/comp/cs4218/impl/app/helper/WcHelper::getCountReport &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return result;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_150'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_151'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        } catch (Exception e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_152'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new WcException(e.getMessage(), e);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_153'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_154'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_155'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_156'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static boolean invalidNode(File node, List&#60;String&#62; result) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_157'/>
+157
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_157'>1</a>
+<span>
+
+1. invalidNode : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!node.exists()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_158'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            result.add(node.getName() + &#34;: &#34; + E_FILE_NOT_FOUND);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_159'/>
+159
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_159'>1</a>
+<span>
+
+1. invalidNode : replaced boolean return with false for sg/edu/nus/comp/cs4218/impl/app/helper/WcHelper::invalidNode &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_161'/>
+161
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_161'>1</a>
+<span>
+
+1. invalidNode : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (node.isDirectory()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_162'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            result.add(node.getName() + &#34;: &#34; + E_IS_DIR);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_163'/>
+163
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_163'>1</a>
+<span>
+
+1. invalidNode : replaced boolean return with false for sg/edu/nus/comp/cs4218/impl/app/helper/WcHelper::invalidNode &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_164'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_165'/>
+165
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_165'>1</a>
+<span>
+
+1. invalidNode : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!node.canRead()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_166'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            result.add(node.getName() + &#34;: &#34; + E_NO_PERM);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_167'/>
+167
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_167'>1</a>
+<span>
+
+1. invalidNode : replaced boolean return with false for sg/edu/nus/comp/cs4218/impl/app/helper/WcHelper::invalidNode &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_168'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_169'/>
+169
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_169'>1</a>
+<span>
+
+1. invalidNode : replaced boolean return with true for sg/edu/nus/comp/cs4218/impl/app/helper/WcHelper::invalidNode &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_170'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_171'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_172'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountLine<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_emptyFile_returnsAllZeros()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountLine<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_emptyFile_returnsAllZeros()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_48'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountLine<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_emptyFile_returnsAllZeros()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_52'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountLine<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_emptyFile_returnsAllZeros()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getCountLine<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_emptyFile_returnsAllZeros()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountLine<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_emptyFile_returnsAllZeros()]</span></span> replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/impl/app/helper/WcHelper::getCountLine &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsBytesAndLines()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_76'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_singleFileWithSingleLineTextLinesOptionAndStdin_returnLinesTotalCount()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_singleFileWithSingleLineTextLinesOptionAndStdin_returnLinesTotalCount()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_79'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_singleFileWithSingleLineTextWordsOption_returnWordsTotalCount()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_80'>80</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_80'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_singleFileWithSingleLineTextWordsOption_returnWordsTotalCount()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_singleFileWithSingleLineTextBytesOptionAndStdin_returnBytesTotalCount()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_singleFileWithSingleLineTextBytesOptionAndStdin_returnBytesTotalCount()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_85'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsBytesAndLines()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsBytesAndLines()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsBytesAndWords()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_87'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsLinesAndWords()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_88'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsLinesAndWords()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_89'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsBytesAndLines()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsBytesAndLines()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_90'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsBytesAndLines()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_91'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsBytesAndLines()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_93'>93</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_93'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsBytesAndWords()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_94'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsBytesAndWords()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_stdinAndSingleFileWithSingleLineText_returnsLinesWordsBytesTotalCount()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_98'>98</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_98'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_stdinAndSingleFileWithSingleLineText_returnsLinesWordsBytesTotalCount()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_99'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_stdinAndSingleFileWithSingleLineText_returnsLinesWordsBytesTotalCount()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_101'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateCountTotal<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsBytesAndLines()]</span></span> replaced return value with null for sg/edu/nus/comp/cs4218/impl/app/helper/WcHelper::updateCountTotal &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_115'>115</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_115'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:getCountReport_validInputStreamWithPrefix_returnsCorrectOutput()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_125'>125</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_125'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_emptyFile_returnsAllZeros()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_126'>126</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_126'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_singleFileWithSingleLineTextWordsOption_returnWordsCount()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleInputNoFileSpecified_displaysLinesWordsBytes()]</span></span> changed conditional boundary &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_127'>127</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_127'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_singleFileWithSingleLineTextWordsOption_returnWordsCount()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_129'>129</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_129'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_singleFileWithSingleLineTextLinesOption_returnLinesCount()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_130'>130</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_130'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleInputNoFileSpecified_displaysLinesWordsBytes()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_132'>132</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_132'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_singleFileWithSingleLineTextWordsOption_returnWordsCount()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_133'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_singleFileWithSingleLineTextWordsOption_returnWordsCount()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_141'>141</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_141'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_singleFileWithSingleLineTextBytesOption_returnBytesCount()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_142'>142</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_142'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>none</span></span> removed call to java/io/ByteArrayOutputStream::write &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_144'>144</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_144'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>none</span></span> removed call to java/io/ByteArrayOutputStream::flush &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_145'>145</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_145'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_emptyFile_returnsAllZeros()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_146'>146</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_146'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_singleFileWithSingleLineTextWordsOption_returnWordsCount()]</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_149'>149</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_149'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCountReport<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:getCountReport_validInputStreamWithPrefix_returnsCorrectOutput()]</span></span> replaced return value with null for sg/edu/nus/comp/cs4218/impl/app/helper/WcHelper::getCountReport &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_157'>157</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_157'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invalidNode<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFiles_invalidFileName_returnExceptionMessage()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_159'>159</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_159'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invalidNode<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFiles_invalidFileName_returnExceptionMessage()]</span></span> replaced boolean return with false for sg/edu/nus/comp/cs4218/impl/app/helper/WcHelper::invalidNode &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_161'>161</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_161'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invalidNode<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFiles_fileCannotBeRead_throwsException()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_163'>163</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_163'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invalidNode<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFiles_fileIsADirectory_throwsException()]</span></span> replaced boolean return with false for sg/edu/nus/comp/cs4218/impl/app/helper/WcHelper::invalidNode &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_165'>165</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_165'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invalidNode<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFiles_fileCannotBeRead_throwsException()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_167'>167</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_167'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invalidNode<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFiles_fileCannotBeRead_throwsException()]</span></span> replaced boolean return with false for sg/edu/nus/comp/cs4218/impl/app/helper/WcHelper::invalidNode &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3b3e13f7_169'>169</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3b3e13f7_169'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>invalidNode<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFiles_singleFileWithSingleLineTextLinesOption_returnLinesCount()]</span></span> replaced boolean return with true for sg/edu/nus/comp/cs4218/impl/app/helper/WcHelper::invalidNode &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:getCountReport_validInputStreamWithPrefix_returnsCorrectOutput()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#43] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFiles_singleFileWithSingleLineText_returnsLinesWordsBytesCount()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_emptyFile_returnsAllZeros()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#45] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#47] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#49] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#47] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#49] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#50] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileNoFlags_displaysLinesWordsBytesFilename()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFiles_invalidFileName_returnExceptionMessage()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileWordsFlag_displaysWordsFilename()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#43] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#45] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFiles_singleFileWithSingleLineTextBytesOption_returnBytesCount()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#15] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFiles_singleFileWithSingleLineTextWordsOption_returnWordsCount()] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromStdin_validStdin_wcSuccessfully()] (58 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsConcatenated()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFiles_validFileName_wcSuccessfully(java.nio.file.Path)] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#14] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_singleFileWithSingleLineTextLinesOptionAndStdin_returnLinesTotalCount()] (9 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFiles_fileIsADirectory_throwsException()] (281 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileLinesFlag_displaysLinesFilename()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_singleFileWithSingleLineTextLinesOption_returnLinesCount()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#50] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsLinesAndWords()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleInputDash_displaysLinesWordsBytes()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#23] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsBytesAndLines()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#44] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#46] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#48] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFileAndStdin_fileNameSpecifiedWithStdin_returnsBytesAndWords()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileBytesFlag_displaysBytesFilename()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_singleFileWithSingleLineTextBytesOptionAndStdin_returnBytesTotalCount()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#48] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleInputNoFileSpecified_displaysLinesWordsBytes()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_multipleFiles_displaysLinesWordsBytesFilenameTotal()] (10 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_singleFileWithSingleLineTextWordsOption_returnWordsCount()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_stdinAndSingleFileWithSingleLineText_returnsLinesWordsBytesTotalCount()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_singleFileWithSingleLineTextBytesOption_returnBytesCount()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[method:main_validCommandDoubleEOF_noError()] (92 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#42] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#44] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validCommandWithIO_noError(java.lang.String, java.lang.String, boolean, boolean, boolean, java.nio.file.Path)]/[test-template-invocation:#3] (11 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationTest]/[method:countFromFiles_fileCannotBeRead_throwsException()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_singleFileWithSingleLineTextWordsOption_returnWordsTotalCount()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#46] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#23] (19 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#14] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFiles_singleFileWithSingleLineTextLinesOption_returnLinesCount()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileAllFlags_displaysLinesWordsBytesFilename()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicIntegrationTest]/[method:run_singleFileAndSingleInput_displaysLinesWordsBytesTotal()] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#15] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFiles_emptyFile_returnsAllZeros()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#42] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromFileAndStdin_singleFileWithSingleLineTextAndStdin_returnsLinesWordsBytesTotalCount()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.WcApplicationPublicTest]/[method:countFromStdin_singleFileWithSingleLineText_returnsLinesWordsBytesCount()] (1 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.11.4
+
+</body>
+</html>

@@ -1,0 +1,3219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>CutApplication.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package sg.edu.nus.comp.cs4218.impl.app;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.app.CutInterface;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.exception.AbstractApplicationException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.exception.CutException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.exception.InvalidArgsException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.exception.ShellException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.impl.parser.CutArgsParser;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import sg.edu.nus.comp.cs4218.impl.util.IOUtils;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.File;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.InputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.OutputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Arrays;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.stream.Collectors;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_FILE_NOT_FOUND;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_IS_DIR;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_NO_PERM;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_NULL_ARGS;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_NULL_POINTER;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.E_WRITE_STREAM;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static sg.edu.nus.comp.cs4218.impl.util.StringUtils.STRING_NEWLINE;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class CutApplication implements CutInterface {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void run(String[] args, InputStream stdin, OutputStream stdout) throws AbstractApplicationException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Format: cut [-c] LIST FILES</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //         cut [-b] LIST FILES</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_33'>1</a>
+<span>
+
+1. run : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (stdout == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new CutException(E_NULL_POINTER);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        CutArgsParser cutArgs = parseArgs(args);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        StringBuilder output = new StringBuilder();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_39'>1</a>
+<span>
+
+1. run : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (cutArgs.isReadingFromStdin()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                output.append(cutFromStdin(cutArgs.isCharPo(), cutArgs.isBytePo(), cutArgs.getRanges(), stdin));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                output.append(cutFromFiles(cutArgs.isCharPo(), cutArgs.isBytePo(), cutArgs.getRanges(), cutArgs.getFiles()));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        } catch (CutException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw e;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_48'/>
+48
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_48'>1</a>
+<span>
+
+1. run : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (!output.toString().isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_49'/>
+49
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_49'>1</a>
+<span>
+
+1. run : removed call to java/io/OutputStream::write &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                stdout.write(output.toString().getBytes());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        } catch (IOException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new CutException(E_WRITE_STREAM, e);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Parses arguments for further processing.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param args Arguments passed to the application</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @throws CutException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected CutArgsParser parseArgs(String... args) throws CutException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        CutArgsParser parser = new CutArgsParser();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_65'>1</a>
+<span>
+
+1. parseArgs : removed call to sg/edu/nus/comp/cs4218/impl/parser/CutArgsParser::parse &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            parser.parse(args);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        } catch (InvalidArgsException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new CutException(e.getMessage(), e);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_69'>1</a>
+<span>
+
+1. parseArgs : replaced return value with null for sg/edu/nus/comp/cs4218/impl/app/CutApplication::parseArgs &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return parser;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Cuts out selected portions of each line</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param isCharPo Boolean option to cut by character position</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param isBytePo Boolean option to cut by byte position</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param ranges   List of 2-element arrays containing the start and end indices for cut.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *                 For instance, cutting on the first column would be represented using a [1,1] array.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param fileName Array of String of file names</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @throws CutException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String cutFromFiles(Boolean isCharPo, Boolean isBytePo, List&#60;int[]&#62; ranges, String... fileName) throws CutException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_85'/>
+85
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_85'>1</a>
+<span>
+
+1. cutFromFiles : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (fileName == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new CutException(E_NULL_ARGS);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;String&#62; output = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;String&#62; errorOutput = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (String file : fileName) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            try {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    File node = IOUtils.resolveFilePath(file).toFile();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_94'/>
+94
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_94'>1</a>
+<span>
+
+1. cutFromFiles : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    if (!node.exists()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        throw new CutException(node.getName() + &#34;: &#34; + E_FILE_NOT_FOUND);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_97'/>
+97
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_97'>1</a>
+<span>
+
+1. cutFromFiles : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    if (node.isDirectory()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        throw new CutException(node.getName() + &#34;: &#34; + E_IS_DIR);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_100'/>
+100
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_100'>1</a>
+<span>
+
+1. cutFromFiles : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    if (!node.canRead()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                        throw new CutException(node.getName() + &#34;: &#34; + E_NO_PERM);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    InputStream input = IOUtils.openInputStream(file);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    output.addAll(cutLines(isCharPo, isBytePo, ranges, input));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_105'/>
+105
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_105'>1</a>
+<span>
+
+1. cutFromFiles : removed call to sg/edu/nus/comp/cs4218/impl/util/IOUtils::closeInputStream &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    IOUtils.closeInputStream(input);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                } catch (ShellException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    throw new CutException(e.getMessage(), e);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            } catch (CutException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                errorOutput.add(e.getMessage());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        output.addAll(errorOutput);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_114'/>
+114
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_114'>1</a>
+<span>
+
+1. cutFromFiles : replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/impl/app/CutApplication::cutFromFiles &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return String.join(STRING_NEWLINE, output) + STRING_NEWLINE;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Cuts out selected portions of each line</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param isCharPo Boolean option to cut by character position</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param isBytePo Boolean option to cut by byte position</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param ranges   List of 2-element arrays containing the start and end indices for cut.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *                 For instance, cutting on the first column would be represented using a [1,1] array.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param stdin    InputStream containing arguments from Stdin</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @throws CutException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String cutFromStdin(Boolean isCharPo, Boolean isBytePo, List&#60;int[]&#62; ranges, InputStream stdin) throws CutException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_130'/>
+130
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_130'>1</a>
+<span>
+
+1. cutFromStdin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (stdin == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new CutException(E_NULL_POINTER);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_133'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        List&#60;String&#62; output;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_134'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            output = cutLines(isCharPo, isBytePo, ranges, stdin);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        } catch (ShellException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_137'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new CutException(e.getMessage(), e);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_138'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_139'/>
+139
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_139'>1</a>
+<span>
+
+1. cutFromStdin : replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/impl/app/CutApplication::cutFromStdin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return String.join(STRING_NEWLINE, output) + STRING_NEWLINE;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_140'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_141'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_142'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_143'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Helper function to cut out selected portions of each line using either char or byte position.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_144'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_145'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param isCharPo Boolean option to cut by character position</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_146'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param isBytePo Boolean option to cut by byte position</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_147'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param ranges   List of 2-element arrays containing the start and end indices for cut.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_148'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *                 For instance, cutting on the first column would be represented using a [1,1] array.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_149'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param input    InputStream containing arguments from Stdin or Files</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_150'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_151'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @throws ShellException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_152'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_153'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected List&#60;String&#62; cutLines(Boolean isCharPo, Boolean isBytePo, List&#60;int[]&#62; ranges, InputStream input) throws ShellException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_154'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;String&#62; lines = IOUtils.getLinesFromInputStream(input);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_155'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_156'/>
+156
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_156'>1</a>
+<span>
+
+1. cutLines : replaced return value with Collections.emptyList for sg/edu/nus/comp/cs4218/impl/app/CutApplication::cutLines &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return lines.stream()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_157'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .map(line -&#62; { // do this for each line</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_158'/>
+158
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_158'>1</a>
+<span>
+
+1. lambda$cutLines$2 : replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/impl/app/CutApplication::lambda$cutLines$2 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    return ranges.stream()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_159'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                            .map(range -&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_160'/>
+160
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_160'>1</a>
+<span>
+
+1. lambda$cutLines$0 : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                                int start = range[0] - 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_161'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                                int end = range[1];</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_162'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_163'/>
+163
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_163'>1</a>
+<span>
+
+1. lambda$cutLines$0 : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                                if (isCharPo) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_164'/>
+164
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_164'>2</a>
+<span>
+
+1. lambda$cutLines$0 : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. lambda$cutLines$0 : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                                    if (line.length() &#60; end) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_165'/>
+165
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_165'>1</a>
+<span>
+
+1. lambda$cutLines$0 : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                                        if (range[0] == range[1]) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_166'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                                            return &#34;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_167'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_168'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                                            end = line.length();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_169'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_170'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_171'/>
+171
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_171'>1</a>
+<span>
+
+1. lambda$cutLines$0 : replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/impl/app/CutApplication::lambda$cutLines$0 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                                    return line.substring(start, end);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_172'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_173'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                                    byte[] bytes = line.getBytes();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_174'/>
+174
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_174'>2</a>
+<span>
+
+1. lambda$cutLines$0 : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. lambda$cutLines$0 : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                                    if (bytes.length &#60; end) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_175'/>
+175
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_175'>1</a>
+<span>
+
+1. lambda$cutLines$0 : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                                        if (range[0] == range[1]) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_176'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                                            return &#34;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_177'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_178'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                                            end = bytes.length;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_179'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_180'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_181'/>
+181
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_181'>1</a>
+<span>
+
+1. lambda$cutLines$0 : replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/impl/app/CutApplication::lambda$cutLines$0 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                                    return new String(Arrays.copyOfRange(bytes, start, end));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_182'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_183'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                            })</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_184'/>
+184
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_184'>1</a>
+<span>
+
+1. lambda$cutLines$1 : replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/impl/app/CutApplication::lambda$cutLines$1 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                            .reduce(&#34;&#34;, (x, y) -&#62; x + y);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_185'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                }).collect(Collectors.toList());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_186'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2df0d412_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_187'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>run<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:run_emptyStdout_throwsCutException()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>run<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:run_cutFromStdinError_throwsCutException()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_48'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>run<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:run_noFileNameSpecified_usesStdinAndWritesToStdoutSuccessfully()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_49'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>run<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:run_noFileNameSpecified_usesStdinAndWritesToStdoutSuccessfully()]</span></span> removed call to java/io/OutputStream::write &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseArgs<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicIntegrationTest]/[method:cutFromStdin_singleLineByByteRange_returnCutByByte()]</span></span> removed call to sg/edu/nus/comp/cs4218/impl/parser/CutArgsParser::parse &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseArgs<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicIntegrationTest]/[method:cutFromStdin_singleLineByByteRange_returnCutByByte()]</span></span> replaced return value with null for sg/edu/nus/comp/cs4218/impl/app/CutApplication::parseArgs &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_85'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cutFromFiles<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromFiles_nullFileName_throwsCutException()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_94'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cutFromFiles<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromFiles_errorWithTryOpenInputStream_throwsCutException(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cutFromFiles<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromFiles_errorWithTryOpenInputStream_throwsCutException(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_100'>100</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_100'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cutFromFiles<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromFiles_errorWithTryOpenInputStream_throwsCutException(java.nio.file.Path)]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_105'>105</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_105'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cutFromFiles<br/><b>Killed by : </b>none</span></span> removed call to sg/edu/nus/comp/cs4218/impl/util/IOUtils::closeInputStream &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_114'>114</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_114'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cutFromFiles<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromFiles_errorWithTryOpenInputStream_throwsCutException(java.nio.file.Path)]</span></span> replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/impl/app/CutApplication::cutFromFiles &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_130'>130</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_130'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cutFromStdin<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromStdin_nullStdin_throwsCutException()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_139'>139</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_139'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cutFromStdin<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromStdin_validStdin_returnCutByChar()]</span></span> replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/impl/app/CutApplication::cutFromStdin &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_156'>156</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_156'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cutLines<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutLines_validInputStreamWithCharPo_returnsCorrectOutput()]</span></span> replaced return value with Collections.emptyList for sg/edu/nus/comp/cs4218/impl/app/CutApplication::cutLines &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_158'>158</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_158'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$cutLines$2<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutLines_validInputStreamWithCharPo_returnsCorrectOutput()]</span></span> replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/impl/app/CutApplication::lambda$cutLines$2 &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_160'>160</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_160'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$cutLines$0<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutLines_validInputStreamWithCharPo_returnsCorrectOutput()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_163'>163</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_163'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$cutLines$0<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutLines_validInputStreamWithCharPo_returnsCorrectOutput()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_164'>164</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_164'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$cutLines$0<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>lambda$cutLines$0<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutLines_validInputStreamWithCharPo_returnsCorrectOutput()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_165'>165</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_165'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$cutLines$0<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutLines_validInputStreamWithCharPo_returnsCorrectOutput()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_171'>171</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_171'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$cutLines$0<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutLines_validInputStreamWithCharPo_returnsCorrectOutput()]</span></span> replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/impl/app/CutApplication::lambda$cutLines$0 &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_174'>174</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_174'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$cutLines$0<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>lambda$cutLines$0<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutLines_validInputStreamWithBytePo_returnsCorrectOutput()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_175'>175</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_175'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$cutLines$0<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutLines_validInputStreamWithBytePo_returnsCorrectOutput()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_181'>181</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_181'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$cutLines$0<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutLines_validInputStreamWithBytePo_returnsCorrectOutput()]</span></span> replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/impl/app/CutApplication::lambda$cutLines$0 &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2df0d412_184'>184</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2df0d412_184'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$cutLines$1<br/><b>Killed by : </b>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutLines_validInputStreamWithCharPo_returnsCorrectOutput()]</span></span> replaced return value with &#34;&#34; for sg/edu/nus/comp/cs4218/impl/app/CutApplication::lambda$cutLines$1 &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromFiles_errorWithTryOpenInputStream_throwsCutException(java.nio.file.Path)] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#28] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#26] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutLines_validInputStreamWithCharPo_returnsCorrectOutput()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromFiles_validFileName_returnCutByChar(java.nio.file.Path)] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#26] (8 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#28] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromStdin_validStdin_returnCutByChar()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicIntegrationTest]/[method:cutFromStdin_multipleLinesByByteRange_returnCutContentAtEachLineByByte()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicIntegrationTest]/[method:cutFromStdin_singleLineByByteRange_returnCutByByte()] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#8] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:run_cutFromFilesError_throwsCutException()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#6] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:run_fileSpecified_usesFilesAndWritesToStdoutSuccessfully()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#8] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#11] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#6] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#8] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicTest]/[method:cutFromStdin_singleLineByByteRange_returnCutByByte()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicTest]/[method:cutFromStdin_singleLineByCharRange_returnCutByLine()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#12] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#73] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicIntegrationTest]/[method:cutFromStdin_multipleLinesByCharRange_returnCutContentAtEachLineByByte()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#8] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#10] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#27] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromFiles_fileIsADirectory_throwsCutException(java.nio.file.Path)] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromFiles_validFileName_returnCutByByte(java.nio.file.Path)] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#25] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromStdin_nullStdin_throwsCutException()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#25] (6 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#7] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#27] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:run_cutFromStdinError_throwsCutException()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:run_noFileNameSpecified_usesStdinAndWritesToStdoutSuccessfully()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutLines_validInputStreamWithBytePo_returnsCorrectOutput()] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromStdin_cutLines_throwsCutException()] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#7] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#5] (5 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:run_stdOutWritesThrowsIOException_throwsCutException()] (51 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicTest]/[method:cutFromStdin_multipleLinesByCharRange_returnCutContentAtEachLineByByte()] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicTest]/[method:cutFromStdin_multipleLinesByByteRange_returnCutContentAtEachLineByByte()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromFiles_nullFileName_throwsCutException()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromStdin_validStdin_returnCutByByte()] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:cutFromFiles_invalidFileName_throwsCutException(java.nio.file.Path)] (68 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#10] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#9] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#12] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#5] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#7] (4 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#74] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_invalidSimpleCommand_throwsException(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#11] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:parseAndEvaluate_validSimpleCommand_noError(java.lang.String, java.lang.String, java.nio.file.Path)]/[test-template-invocation:#72] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicIntegrationTest]/[method:run_singleLineByCharRange_returnCutByLine()] (1 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationPublicTest]/[method:cutFromStdin_nullContent_throwsException()] (0 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#9] (2 ms)</li><li>sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.ShellImplIntegrationTest]/[test-template:main_invalidSimpleCommand_throwsExceptionContinueRunning(java.lang.String, java.lang.Throwable, java.nio.file.Path)]/[test-template-invocation:#7] (3 ms)</li><li>sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest.[engine:junit-jupiter]/[class:sg.edu.nus.comp.cs4218.impl.app.CutApplicationTest]/[method:run_emptyStdout_throwsCutException()] (1 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.11.4
+
+</body>
+</html>

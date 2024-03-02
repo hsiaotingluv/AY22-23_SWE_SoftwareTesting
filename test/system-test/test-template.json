@@ -1,0 +1,21 @@
+[
+    {
+        "testName": "Template test case",
+        "dirToCreate": ["createThisDirectory"],
+        "fileToCreate": {
+            "test.txt": ["This is test file 1", "This is second line in test file 1"],
+            "createThisDirectory/test2.txt": ["This is test file 2"]
+        },
+        "testCommand": ["echo testing", "cat test.txt"],
+        "expOutput": [
+          "> testing",
+          "> This is test file 1",
+          "This is second line in test file 1",
+          "> "
+        ],
+        "expError": [ ],
+        "expFileContent": {
+            "test.txt": ["This is test file 1", "This is second line in test file 1"]
+        }
+      }
+]
